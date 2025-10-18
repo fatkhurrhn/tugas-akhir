@@ -165,7 +165,7 @@ export default function HomePage() {
     };
 
     return (
-        <div className="min-h-screen bg-white pb-20">
+        <div className="min-h-screen max-w-[450px] mx-auto bg-white pb-20">
             {/* Fresh New Header */}
             <div className="bg-white border-b border-gray-200">
                 <div className="pt-6 pb-4 px-4">

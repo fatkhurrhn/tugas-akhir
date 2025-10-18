@@ -30,7 +30,7 @@ const BottomNav = () => {
   return (
     <>
       {/* Bottom Nav */}
-      <div className="fixed max-w-xl mx-auto bottom-0 left-0 right-0 z-50 bg-[#fcfeff] shadow-[0_-2px_5px_rgba(0,0,0,0.05)]">
+      <div className="fixed max-w-[450px] mx-auto bottom-0 left-0 right-0 z-50 bg-[#fcfeff] shadow-[0_-2px_5px_rgba(0,0,0,0.05)]">
         <div className="grid grid-cols-5 h-14">
           {navItems.map((item) => {
             const isActive = item.path === activePath;
