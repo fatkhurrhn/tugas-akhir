@@ -7,7 +7,7 @@ import Try from './try/Try';
 import HomeDisnaker from './try/disnaker/HomeDIsnaker';
 import Lowongan from './try/disnaker/Lowongan';
 import Pelatihan from './try/disnaker/Pelatihan';
-import Berita from './try/disnaker/berita';
+import Berita from './try/disnaker/Blog';
 import Tkwt from './try/disnaker/Tkwt';
 import DetailLowongan from './try/disnaker/DetailLowongan';
 
