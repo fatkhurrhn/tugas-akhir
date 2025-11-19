@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/try/Navbar';
+import Footer from '../../components/try/Footer';
 
-export default function HomePage() {
+export default function HomeDisnaker() {
   const [searchQuery, setSearchQuery] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
-   const [activeFaq, setActiveFaq] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
 
   const latestJobs = [
     {
@@ -129,7 +129,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar/>
+      <Navbar />
       <section className="relative bg-gradient-to-r from-[#355485] to-[#4f90c6] text-white py-20 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80')] bg-cover bg-center mix-blend-overlay"></div>
@@ -490,7 +490,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

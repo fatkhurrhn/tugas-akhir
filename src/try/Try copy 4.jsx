@@ -1,7 +1,7 @@
-// src/pages/MatchFruitsMini.jsx
+// src/pages/MatchFruits.jsx
 import React, { useState } from "react";
 
-/** ===== PALET (sama) ===== */
+/** ===== PALET ===== */
 const PALET = {
   primary: "#355485",
   dark: "#2a436c",
@@ -13,27 +13,34 @@ const PALET = {
   border: "#e5e7eb",
 };
 
-/** ===== DATA BUAH (9 kartu = 4 pasang + 1 ekstra) ===== */
+/** ===== DATA BUAH (emoji offline) ===== */
 const FRUITS = [
   { id: "apel", label: "Apel", icon: "🍎" },
   { id: "pisang", label: "Pisang", icon: "🍌" },
   { id: "ceri", label: "Ceri", icon: "🍒" },
   { id: "jeruk", label: "Jeruk", icon: "🍊" },
   { id: "semangka", label: "Semangka", icon: "🍉" },
-  { id: "melon", label: "melon", icon: "🍉" },
-]; // 5 jenis → 4 pasang + 1 sisa
+  { id: "anggur", label: "Anggur", icon: "🍇" },
+  { id: "nanas", label: "Nanas", icon: "🍍" },
+  { id: "strawberi", label: "Stroberi", icon: "🍓" },
+  { id: "kiwi", label: "Kiwi", icon: "🥝" },
+  { id: "persik", label: "Persik", icon: "🍑" },
+  { id: "mangga", label: "Mangga", icon: "🥭" },
+  { id: "pir", label: "Pir", icon: "🍐" },
+  { id: "blueberry", label: "Blueberry", icon: "🫐" },
+  { id: "durian", label: "Durian", icon: "🌰" }, // proxy emoji
+  { id: "lemon", label: "Lemon", icon: "🍋" },
+];
 
 /** ===== UTILS ===== */
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
-/** ===== BOARD 9 kartu ===== */
+/** ===== BOARD (30 kartu: 15 pasang) ===== */
 function createBoard() {
-  // ambil 4 pasang (8 kartu) + 1 kartu tunggal (total 9)
-  const pairs = FRUITS.slice(0, 4).flatMap((f) => [{ ...f }, { ...f }]);
-  const extra = { ...FRUITS[4] }; // kartu ke-9 (gak punya pasangan)
-  const mixed = shuffle([...pairs, extra]).map((fruit, idx) => ({
+  const pairs = FRUITS.flatMap((f) => [{ ...f }, { ...f }]); // 30
+  const mixed = shuffle(pairs).map((fruit, idx) => ({
     key: `card-${idx}`,
-    number: idx + 1, // 1..9
+    number: idx + 1, // 1..30
     fruitId: fruit.id,
     fruitLabel: fruit.label,
     fruitIcon: fruit.icon,
@@ -43,10 +50,10 @@ function createBoard() {
   return mixed;
 }
 
-export default function MatchFruitsMini() {
+export default function MatchFruits() {
   const [board, setBoard] = useState(createBoard);
-  const [firstPick, setFirstPick] = useState(null);
-  const [secondPick, setSecondPick] = useState(null);
+  const [firstPick, setFirstPick] = useState(null);   // index
+  const [secondPick, setSecondPick] = useState(null); // index
   const [lock, setLock] = useState(false);
   const [moves, setMoves] = useState(0);
   const [matches, setMatches] = useState(0);
@@ -83,7 +90,7 @@ export default function MatchFruitsMini() {
         const b = newBoard[idx];
 
         if (a.fruitId === b.fruitId) {
-          // pasangan cocok
+          // match
           const updated = newBoard.map((c, i) =>
             i === firstPick || i === idx ? { ...c, matched: true } : c
           );
@@ -107,20 +114,20 @@ export default function MatchFruitsMini() {
 
   const flipByNumber = () => {
     const num = Number(inputNum);
-    if (!Number.isInteger(num) || num < 1 || num > 9) return;
+    if (!Number.isInteger(num) || num < 1 || num > 30) return;
     const idx = board.findIndex((c) => c.number === num);
     if (idx >= 0) flipCard(idx);
     setInputNum("");
   };
 
-  const allMatched = matches === 4; // 4 pasang
+  const allMatched = matches === 15;
 
-  // ukuran kartu sedikit lebih besar karena gridnya cuma 3 kolom
-  const CARD_SIZE = "clamp(90px, 28vw, 160px)";
+  // ukuran kartu kecil & square
+  const CARD_SIZE = "clamp(64px, 12vw, 110px)";
 
   return (
     <div className="min-h-screen px-4 py-6" style={{ background: PALET.bg }}>
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <header className="text-center space-y-2">
           <div
@@ -130,10 +137,10 @@ export default function MatchFruitsMini() {
             <i className="ri-shapes-line text-xl" />
           </div>
           <h1 className="text-2xl md:text-3xl font-bold" style={{ color: PALET.dark }}>
-            Mini Memory Match Buah
+            Cocokkan Buah — Memory Match Kelas
           </h1>
           <p className="text-sm" style={{ color: PALET.gray }}>
-            9 kartu • 3×3 grid • 4 pasang + 1 kartu ekstra
+            Depan kartu: <b>angka 1–30</b>. Belakang: <b>ikon buah</b>. Buka dua yang sama!
           </p>
         </header>
 
@@ -150,13 +157,13 @@ export default function MatchFruitsMini() {
               <input
                 type="number"
                 min={1}
-                max={9}
+                max={10}
                 value={inputNum}
                 onChange={(e) => setInputNum(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && flipByNumber()}
-                className="mt-1 w-24 rounded-lg border px-3 py-2"
+                className="mt-1 w-32 rounded-lg border px-3 py-2"
                 style={{ borderColor: PALET.border }}
-                placeholder="1–9"
+                placeholder="1–30"
               />
             </div>
             <button
@@ -177,16 +184,18 @@ export default function MatchFruitsMini() {
             <div className="ml-auto text-sm">
               <span style={{ color: PALET.gray }}>
                 Langkah: <b style={{ color: PALET.dark }}>{moves}</b> • Pasangan:{" "}
-                <b style={{ color: PALET.dark }}>{matches}/4</b>
+                <b style={{ color: PALET.dark }}>{matches}/15</b>
               </span>
             </div>
           </div>
         </section>
 
-        {/* Grid 3 kolam (square) */}
+        {/* Grid 6 kolom (square kecil) */}
         <section
           className="grid gap-3 justify-items-center"
-          style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}
+          style={{
+            gridTemplateColumns: "repeat(6, minmax(0, 1fr))",
+          }}
         >
           {board.map((card, idx) => {
             const faceUp = card.flipped || card.matched;
@@ -200,7 +209,7 @@ export default function MatchFruitsMini() {
                   borderColor: PALET.border,
                   background: "white",
                   width: CARD_SIZE,
-                  height: CARD_SIZE,
+                  height: CARD_SIZE, // square
                 }}
                 aria-label={`Kartu nomor ${card.number}`}
               >
@@ -208,7 +217,7 @@ export default function MatchFruitsMini() {
                 <div
                   className={`absolute inset-0 grid place-items-center transition-opacity duration-200 ${faceUp ? "opacity-0" : "opacity-100"
                     }`}
-                  style={{ color: PALET.primary, fontWeight: 800, fontSize: "2rem" }}
+                  style={{ color: PALET.primary, fontWeight: 800, fontSize: "1.5rem" }}
                 >
                   {card.number}
                 </div>
@@ -219,13 +228,13 @@ export default function MatchFruitsMini() {
                     }`}
                   style={{ background: PALET.pale }}
                 >
-                  <div style={{ fontSize: "2.5rem" }}>{card.fruitIcon}</div>
+                  <div style={{ fontSize: "1.8rem" }}>{card.fruitIcon}</div>
                   <div className="mt-0.5 text-xs font-medium" style={{ color: PALET.dark }}>
                     {card.fruitLabel}
                   </div>
                 </div>
 
-                {/* Highlight pas matched */}
+                {/* Highlight saat matched */}
                 {card.matched && (
                   <div className="absolute inset-0 ring-4 ring-green-300 rounded-lg pointer-events-none" />
                 )}
@@ -241,7 +250,7 @@ export default function MatchFruitsMini() {
             style={{ border: `1px solid ${PALET.border}` }}
           >
             <h2 className="text-2xl font-bold" style={{ color: PALET.dark }}>
-              Hore! 4 pasangan selesai 🎉
+              Keren! Semua pasangan ditemukan 🎉
             </h2>
             <p className="text-sm mt-1" style={{ color: PALET.gray }}>
               Total langkah: <b style={{ color: PALET.dark }}>{moves}</b>
@@ -257,7 +266,7 @@ export default function MatchFruitsMini() {
         )}
 
         <footer className="pt-2 text-center text-xs" style={{ color: PALET.gray }}>
-          © {new Date().getFullYear()} — Mini Memory Match Buah • 9 kartu • 3×3 grid
+          © {new Date().getFullYear()} — Memory Match Buah • 30 kartu • Grid 6×5 • Square kecil
         </footer>
       </div>
     </div>
