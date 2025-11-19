@@ -18,6 +18,13 @@ import Tkwt, {
 import DetailLowongan from './try/disnaker/DetailLowongan';
 import DetailBlog from './try/disnaker/DetailBlog';
 import DetailPeserta from './try/disnaker/DetailPeserta';
+import Pkwt, { 
+  PengertianPKWT, 
+  SyaratKetentuanPKWT, 
+  HakKewajibanPKWT, 
+  TemplateDokumenPKWT, 
+  KonsultasiPKWT 
+} from './try/disnaker/Pkwt';
 
 function App() {
   return (
@@ -37,6 +44,9 @@ function App() {
         <Route path="/disnaker/blog/1" element={<DetailBlog />} />
         <Route path="/disnaker/tkwt" element={<Tkwt />} />
         <Route path="/disnaker/tkwt/:tab" element={<Tkwt />} />
+
+        <Route path="/disnaker/pkwt" element={<Pkwt />} />
+        <Route path="/pkwt/:tab" element={<Pkwt />} />
 
         {/* Catch-all untuk halaman yang tidak ada */}
         <Route path="/comingsoon" element={<ComingSoon />} />
