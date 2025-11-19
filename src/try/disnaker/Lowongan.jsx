@@ -137,29 +137,57 @@ export default function Lowongan2() {
         <>
             <Navbar />
 
-            <main className="min-h-screen bg-gray-50">
-                {/* Header - Style konsisten dengan sebelumnya */}
-                <div className="bg-white shadow-sm border-b">
+            <main className="min-h-screen bg-[#f9fafb]">
+                {/* Header */}
+                {/* <div className="bg-white shadow-sm border-b border-[#e5e7eb]">
                     <div className="max-w-7xl mx-auto px-6 py-12">
                         <div className="text-center">
-                            <h1 className="text-4xl font-bold text-gray-800 mb-4">Temukan Lowongan Kerja</h1>
-                            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            <h1 className="text-4xl font-bold text-[#355485] mb-4">Temukan Lowongan Kerja</h1>
+                            <p className="text-xl text-[#6b7280] max-w-2xl mx-auto">
                                 Jelajahi berbagai peluang karir dari perusahaan terpercaya
                             </p>
-                        </div>
+                        </div> */}
 
                         {/* Search Bar */}
-                        <div className="max-w-2xl mx-auto mt-8">
-                            <div className="bg-white rounded-lg shadow-sm border border-gray-300 p-2">
+                        {/* <div className="max-w-2xl mx-auto mt-8">
+                            <div className="bg-white rounded-lg shadow-sm border border-[#e5e7eb] p-2">
                                 <div className="flex">
                                     <input
                                         type="text"
                                         placeholder="Cari posisi, perusahaan, atau kata kunci..."
                                         value={filters.keyword}
                                         onChange={(e) => setFilters({ ...filters, keyword: e.target.value })}
-                                        className="flex-1 px-4 py-3 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="flex-1 px-4 py-3 text-[#355485] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f90c6] focus:border-transparent"
                                     />
-                                    <button className="ml-2 px-8 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                                    <button className="ml-2 px-8 bg-[#355485] text-white rounded-lg hover:bg-[#2a436c] transition font-semibold">
+                                        Cari
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+
+                {/* Header */}
+                <div className="bg-gradient-to-r from-[#355485] to-[#2a436c] text-white py-16">
+                    <div className="max-w-7xl mx-auto px-6 text-center">
+                        <h1 className="text-5xl font-bold mb-6">Temukan Lowongan Kerja</h1>
+                        <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                            Jelajahi berbagai peluang karir dari perusahaan terpercaya
+                        </p>
+
+                        {/* Search Bar */}
+                        <div className="max-w-2xl mx-auto mt-8">
+                            <div className="bg-white rounded-lg shadow-lg p-2">
+                                <div className="flex">
+                                    <input
+                                        type="text"
+                                        placeholder="Cari posisi, perusahaan, atau kata kunci..."
+                                        v value={filters.keyword}
+                                        onChange={(e) => setFilters({ ...filters, keyword: e.target.value })}
+                                        className="flex-1 px-4 py-3 text-[#355485] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f90c6]"
+                                    />
+                                    <button className="ml-2 px-8 bg-[#355485] text-white rounded-lg hover:bg-[#2a436c] transition font-semibold">
                                         Cari
                                     </button>
                                 </div>
@@ -170,18 +198,18 @@ export default function Lowongan2() {
 
                 <div className="max-w-7xl mx-auto px-6 py-8">
                     <div className="flex flex-col lg:flex-row gap-8">
-                        {/* Sidebar Filters - Dipertahankan */}
+                        {/* Sidebar Filters */}
                         <div className="lg:w-1/4">
-                            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Filter Lowongan</h3>
+                            <div className="bg-white rounded-xl shadow-sm border border-[#e5e7eb] p-6 sticky top-6">
+                                <h3 className="text-lg font-semibold text-[#355485] mb-4">Filter Lowongan</h3>
 
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
+                                        <label className="block text-sm font-medium text-[#355485] mb-2">Kategori</label>
                                         <select
                                             value={filters.kategori}
                                             onChange={(e) => setFilters({ ...filters, kategori: e.target.value })}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f90c6] focus:border-transparent text-[#355485]"
                                         >
                                             <option value="">Semua Kategori</option>
                                             {kategoriList.map(kat => (
@@ -191,11 +219,11 @@ export default function Lowongan2() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Lokasi</label>
+                                        <label className="block text-sm font-medium text-[#355485] mb-2">Lokasi</label>
                                         <select
                                             value={filters.lokasi}
                                             onChange={(e) => setFilters({ ...filters, lokasi: e.target.value })}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f90c6] focus:border-transparent text-[#355485]"
                                         >
                                             <option value="">Semua Lokasi</option>
                                             {lokasiList.map(loc => (
@@ -205,11 +233,11 @@ export default function Lowongan2() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Pendidikan</label>
+                                        <label className="block text-sm font-medium text-[#355485] mb-2">Pendidikan</label>
                                         <select
                                             value={filters.pendidikan}
                                             onChange={(e) => setFilters({ ...filters, pendidikan: e.target.value })}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f90c6] focus:border-transparent text-[#355485]"
                                         >
                                             <option value="">Semua Pendidikan</option>
                                             {pendidikanList.map(pdd => (
@@ -219,11 +247,11 @@ export default function Lowongan2() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Tipe Pekerjaan</label>
+                                        <label className="block text-sm font-medium text-[#355485] mb-2">Tipe Pekerjaan</label>
                                         <select
                                             value={filters.type}
                                             onChange={(e) => setFilters({ ...filters, type: e.target.value })}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            className="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f90c6] focus:border-transparent text-[#355485]"
                                         >
                                             <option value="">Semua Tipe</option>
                                             {typeList.map(type => (
@@ -240,7 +268,7 @@ export default function Lowongan2() {
                                             pendidikan: '',
                                             type: ''
                                         })}
-                                        className="w-full py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium"
+                                        className="w-full py-2 border border-[#e5e7eb] text-[#6b7280] rounded-lg hover:bg-[#f9fafb] transition font-medium"
                                     >
                                         Reset Filter
                                     </button>
@@ -253,61 +281,66 @@ export default function Lowongan2() {
                             {/* Results Header */}
                             <div className="flex justify-between items-center mb-6">
                                 <div>
-                                    <h2 className="text-2xl font-bold text-gray-800">
+                                    <h2 className="text-2xl font-bold text-[#355485]">
                                         Lowongan Tersedia
                                         {filters.keyword && (
-                                            <span className="text-blue-600"> untuk "{filters.keyword}"</span>
+                                            <span className="text-[#4f90c6]"> untuk "{filters.keyword}"</span>
                                         )}
                                     </h2>
-                                    <p className="text-gray-600 mt-1">
+                                    <p className="text-[#6b7280] mt-1">
                                         Menampilkan {filteredJobs.length} dari {allJobs.length} lowongan
                                     </p>
                                 </div>
-                                <div className="text-sm text-gray-500">
+                                <div className="text-sm text-[#9ca3af]">
                                     Diperbarui hari ini
                                 </div>
                             </div>
 
-                            {/* Featured Jobs - Style lebih subtle */}
+                            {/* Featured Jobs */}
                             {filteredJobs.filter(job => job.featured).length > 0 && (
                                 <div className="mb-8">
-                                    <h3 className="text-lg font-semibold text-gray-800 mb-4">Lowongan Unggulan</h3>
+                                    <h3 className="text-lg font-semibold text-[#355485] mb-4 flex items-center">
+                                        <svg className="w-5 h-5 text-[#4f90c6] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        Lowongan Unggulan
+                                    </h3>
                                     <div className="space-y-4">
                                         {filteredJobs.filter(job => job.featured).map(job => (
                                             <div
                                                 key={job.id}
-                                                className="bg-white rounded-xl shadow-sm border border-yellow-200 p-6 hover:shadow-md transition cursor-pointer"
+                                                className="bg-white rounded-xl shadow-sm border border-[#cbdde9] p-6 hover:shadow-md transition cursor-pointer group"
                                                 onClick={() => window.location.href = `/lowongan/detail/${job.id}`}
                                             >
                                                 <div className="flex items-start gap-4">
                                                     <img
                                                         src={job.logo}
                                                         alt={job.perusahaan}
-                                                        className="w-16 h-16 rounded-lg object-cover border border-gray-200"
+                                                        className="w-16 h-16 rounded-lg object-cover border border-[#e5e7eb] group-hover:scale-105 transition"
                                                     />
                                                     <div className="flex-1">
                                                         <div className="flex items-start justify-between">
                                                             <div>
-                                                                <h3 className="text-xl font-bold text-gray-800 hover:text-blue-600 transition">
+                                                                <h3 className="text-xl font-bold text-[#355485] group-hover:text-[#4f90c6] transition">
                                                                     {job.posisi}
                                                                 </h3>
-                                                                <p className="text-gray-600 mt-1">{job.perusahaan} • {job.lokasi}</p>
+                                                                <p className="text-[#6b7280] mt-1">{job.perusahaan} • {job.lokasi}</p>
                                                             </div>
-                                                            <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">
+                                                            <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                                 Unggulan
                                                             </span>
                                                         </div>
                                                         <div className="flex flex-wrap gap-2 mt-3">
-                                                            <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                                                            <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                                 {job.kategori}
                                                             </span>
-                                                            <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                                                            <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                                 {job.lokasi}
                                                             </span>
-                                                            <span className="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
+                                                            <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                                 {job.gaji}
                                                             </span>
-                                                            <span className="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">
+                                                            <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                                 {job.type}
                                                             </span>
                                                         </div>
@@ -325,48 +358,48 @@ export default function Lowongan2() {
                                     filteredJobs.map(job => (
                                         <div
                                             key={job.id}
-                                            className="bg-white rounded-xl shadow-sm hover:shadow-md transition cursor-pointer border border-gray-200"
+                                            className="bg-white rounded-xl shadow-sm hover:shadow-md transition cursor-pointer border border-[#e5e7eb] group"
                                             onClick={() => window.location.href = `/lowongan/detail/${job.id}`}
                                         >
                                             <div className="p-6 flex flex-col md:flex-row md:items-center gap-4">
                                                 <img
                                                     src={job.logo}
                                                     alt={job.perusahaan}
-                                                    className="w-16 h-16 rounded-lg object-cover border border-gray-200"
+                                                    className="w-16 h-16 rounded-lg object-cover border border-[#e5e7eb] group-hover:scale-105 transition"
                                                 />
                                                 <div className="flex-1">
-                                                    <h3 className="text-xl font-bold text-gray-800 hover:text-blue-600 transition">
+                                                    <h3 className="text-xl font-bold text-[#355485] group-hover:text-[#4f90c6] transition">
                                                         {job.posisi}
                                                     </h3>
-                                                    <p className="text-gray-600 mt-1">{job.perusahaan} • {job.lokasi}</p>
+                                                    <p className="text-[#6b7280] mt-1">{job.perusahaan} • {job.lokasi}</p>
                                                     <div className="flex flex-wrap gap-2 mt-3">
-                                                        <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                                                        <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                             {job.kategori}
                                                         </span>
-                                                        <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+                                                        <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                             {job.pendidikan}
                                                         </span>
-                                                        <span className="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
+                                                        <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                             {job.gaji}
                                                         </span>
-                                                        <span className="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">
+                                                        <span className="px-3 py-1 bg-[#cbdde9] text-[#355485] text-xs font-medium rounded-full">
                                                             {job.experience}
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div className="text-right md:text-left whitespace-nowrap">
-                                                    <p className="text-sm text-gray-500 mb-1">
+                                                    <p className="text-sm text-[#6b7280] mb-1">
                                                         {getDaysLeft(job.tanggalTutup) > 0 ?
                                                             `${getDaysLeft(job.tanggalTutup)} hari lagi` :
                                                             'Tutup'
                                                         }
                                                     </p>
-                                                    <p className={`font-medium text-sm ${isExpired(job.tanggalTutup) ? 'text-red-600' : 'text-green-600'}`}>
+                                                    <p className={`font-medium text-sm ${isExpired(job.tanggalTutup) ? 'text-red-600' : 'text-[#4f90c6]'}`}>
                                                         {formatDate(job.tanggalTutup)}
                                                     </p>
                                                     <span className={`inline-block mt-2 px-3 py-1 text-xs font-medium rounded-full ${isExpired(job.tanggalTutup)
-                                                            ? 'bg-red-100 text-red-800'
-                                                            : 'bg-green-100 text-green-800'
+                                                        ? 'bg-red-100 text-red-800'
+                                                        : 'bg-[#cbdde9] text-[#355485]'
                                                         }`}>
                                                         {isExpired(job.tanggalTutup) ? 'TUTUP' : 'AKTIF'}
                                                     </span>
@@ -375,14 +408,14 @@ export default function Lowongan2() {
                                         </div>
                                     ))
                                 ) : (
-                                    <div className="text-center py-16 bg-white rounded-xl border border-gray-200">
-                                        <div className="text-gray-400 mb-4">
+                                    <div className="text-center py-16 bg-white rounded-xl border border-[#e5e7eb]">
+                                        <div className="text-[#9ca3af] mb-4">
                                             <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
                                         </div>
-                                        <h3 className="text-lg font-semibold text-gray-800 mb-2">Tidak ada lowongan yang cocok</h3>
-                                        <p className="text-gray-600 mb-4">Coba ubah filterr pencarian Anda atau gunakan kata kunci yang berbeda.</p>
+                                        <h3 className="text-lg font-semibold text-[#355485] mb-2">Tidak ada lowongan yang cocok</h3>
+                                        <p className="text-[#6b7280] mb-4">Coba ubah filter pencarian Anda atau gunakan kata kunci yang berbeda.</p>
                                         <button
                                             onClick={() => setFilters({
                                                 keyword: '',
@@ -391,7 +424,7 @@ export default function Lowongan2() {
                                                 pendidikan: '',
                                                 type: ''
                                             })}
-                                            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                                            className="px-6 py-2 bg-[#355485] text-white rounded-lg hover:bg-[#2a436c] transition font-semibold"
                                         >
                                             Reset Filter
                                         </button>
