@@ -382,7 +382,7 @@ export default function Lowongan2() {
                                             </svg>
                                         </div>
                                         <h3 className="text-lg font-semibold text-gray-800 mb-2">Tidak ada lowongan yang cocok</h3>
-                                        <p className="text-gray-600 mb-4">Coba ubah filter pencarian Anda atau gunakan kata kunci yang berbeda.</p>
+                                        <p className="text-gray-600 mb-4">Coba ubah filterr pencarian Anda atau gunakan kata kunci yang berbeda.</p>
                                         <button
                                             onClick={() => setFilters({
                                                 keyword: '',
