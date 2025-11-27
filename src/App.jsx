@@ -28,10 +28,36 @@ import Pkwt, {
 import Ngetik1 from './typing/G1';
 import About from './disnaker/About';
 
+import PkwtLogin from './pkwt/PkwtLogin';
+import PkwtRegist from './pkwt/PkwtRegist';
+// import DashboardOverview from './pkwt/PkwtOverview';
+
+import DashboardLayout from './components/DashboardLayout';
+import DashboardOverview from './pkwt/PkwtOverview'; 
+import PkwtPage from './pkwt/PkwtPage';
+import PkwttPage from './pkwt/PkwttPage';
+import FormPkwtPage from './pkwt/FormPkwtPage ';
+import CompanyProfilePage from './pkwt/CompanyProfilePage';
+
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/pkwt/login" element={<PkwtLogin />} />
+        <Route path="/pkwt/register" element={<Navigate to="/pkwt/register/data-perusahaan" replace />} />
+        <Route path="/pkwt/register/:step" element={<PkwtRegist />} />
+        {/* <Route path="/pkwt/dashboard/overview" element={<DashboardOverview />} /> */}
+
+        {/* Dashboard Routes */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardOverview />} />
+          <Route path="pkwt" element={<PkwtPage />} />
+          <Route path="pkwtt" element={<PkwttPage />} />
+          <Route path="form-pkwt" element={<FormPkwtPage />} />
+          <Route path="profile" element={<CompanyProfilePage />} />
+        </Route>
+
+
         <Route path="/" element={<HomePage />} />
         <Route path="/tes" element={<Try />} />
         <Route path="/landing-page" element={<LandingPage />} />
@@ -52,7 +78,7 @@ function App() {
         <Route path="/disnaker/tkwt/:tab" element={<Tkwt />} />
 
         <Route path="/disnaker/pkwt" element={<Pkwt />} />
-        <Route path="/pkwt/:tab" element={<Pkwt />} />
+        <Route path="/pkwt/pkwt/:tab" element={<Pkwt />} />
 
         {/* Catch-all untuk halaman yang tidak ada */}
         <Route path="/comingsoon" element={<ComingSoon />} />
